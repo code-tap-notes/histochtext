@@ -1,0 +1,15 @@
+private function storeImage($collaboration)
+    {
+        $this->AuthLogin();
+        if (request()->has('image')){
+            $image = request()->image;
+
+            $filename = $image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath())->fit(90,120);  
+            $image_resize->save(public_path('storage/uploads/collaboration/'.$filename));
+            $collaboration->update(['Image'=> 'uploads/collaboration/'.$filename,
+            ]);
+        }
+        
+    }
+    
