@@ -1,0 +1,35 @@
+protected function validatedData(){
+        $this->AuthLogin();
+        return tap(request()->validate([
+        'title' =>'required',
+        'lastName' => 'required',
+        'firstName' =>'required',
+        'fonctionEn' =>'nullable',
+        'fonctionFr' =>'nullable',
+        'fonctionZh' => 'nullable',
+        'affiliationFr' => 'nullable',
+        'affiliationEn' => 'nullable',
+        'affiliationZh' => 'nullable',
+        'email' => 'nullable',
+        'linkReference' => 'nullable',
+        'team' => 'required',   
+        'associatedResearcher' => 'required',   
+        'collaborator' => 'required',   
+        'order' => 'required',   
+        'visible' => 'required',   
+        ]),
+        function () {
+            if (request()->hasFile('image')) {
+            request()->validate([
+                'image' => 'file|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            ]);
+            };
+             if (request()->hasFile('cv')) {
+            request()->validate([
+                'cv' => 'file|mimes:doc,docs,docx,pdf,txt|max:2048',
+            ]);
+            };                
+        }
+        );
+         
+    }
