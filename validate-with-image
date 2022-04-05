@@ -1,0 +1,22 @@
+protected function validatedData(){
+
+       $this->AuthLogin();
+        return tap(request()->validate([
+        'date' =>'required',
+        'place' => 'nullable',
+        'name' => 'nullable',
+        'description' => 'nullable',
+        'link' => 'nullable',
+        'topic_id' => 'required',   
+        'language_id' => 'required',   
+        ]), function () {
+            if (request()->hasFile('image')) {
+            request()->validate([
+                'image' => 'file|image|mimes:jpeg,png,jpg,gif,svg|max:20000',
+            ]);
+
+            }                
+        });
+        
+
+    }
