@@ -1,0 +1,13 @@
+private function storeFile($collaboration)
+    {
+        $this->AuthLogin();
+        if (request()->has('cv')){
+            //request()->cv->store('public/uploads/collaboration/'); (save Random name
+            $cv = request()->cv;
+            $cvname = $cv->getClientOriginalName();
+            $cv->storeAs('public/uploads/collaboration/',$cvname);
+
+            $collaboration->update(['CV'=> 'uploads/collaboration/'.$cvname, 
+            ]);
+        }         
+    }
