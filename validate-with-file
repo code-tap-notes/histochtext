@@ -1,0 +1,19 @@
+protected function validatedData(){
+        $this->AuthLogin();
+        return tap(request()->validate([
+        'date' =>'required',
+        'membreConcernant' => 'nullable',
+        'title' => 'required',
+        'journal' => 'nullable',
+        'link' => 'nullable',
+        'publicationProject' => 'required',
+        ]),
+        function () {
+            if (request()->hasFile('document')) {
+            request()->validate([
+                'document' => 'file|mimes:doc,docs,docx,pdf,txt',
+            ]);
+            };                
+        }
+        );                        
+    }
