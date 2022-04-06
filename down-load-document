@@ -2,5 +2,5 @@
                 @lang('dic.Document') (File)
 </dt>
 <dd>
-<a href="{{URL::to('public/storage/'.$publication->Document)}}" download="{{$publication->Document}}" class="btn btn-default"> &diams; @lang('dic.DownLoad') &raquo; <span class="glyphicon glyphicon-download"></span></a>                 
+<a href="{{URL::to('**/**/'.$publication->Document)}}" download="{{$publication->Document}}" class="btn btn-default"> &diams; @lang('dic.DownLoad') &raquo; <span class="glyphicon glyphicon-download"></span></a>                 
 </dd>
