@@ -1,0 +1,17 @@
+public function destroy($collaborationId)
+    {
+       $this->AuthLogin();
+       $collaboration = Collaboration::find($collaborationId);
+        $image_path = '**/**/'.$collaboration->Image;  // Value is not URL but directory file path
+        $cv_path = '**/**/'.$collaboration->CV;  // Value is not URL but directory file path
+    if(File::exists($image_path)) {
+    File::delete($image_path);
+    }
+    if(File::exists($cv_path)) {
+    File::delete($cv_path);
+    }
+    $collaboration->publications()->detach();
+    $collaboration->delete();
+    session::put('message',trans('dic.Collaboration').' '.trans('dic.Del'));
+    
+return redirect('/**');
