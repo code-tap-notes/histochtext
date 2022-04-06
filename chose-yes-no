@@ -1,0 +1,16 @@
+<dt class="list">
+                @lang('dic.Publication') @lang('dic.Project')
+</dt>
+<dd class="list">
+            <?php
+             if($publication->PublicationProject==0){
+              ?>
+              <a href="{{URL::to('/activeProject/'.$publication->id)}}">&#9898; @lang('dic.No')</a>
+              <?php
+               }else{
+              ?>  
+               <a href="{{URL::to('/unactiveProject/'.$publication->id)}}">&#9899; @lang('dic.Yes') </a>
+              <?php
+             }
+            ?>
+</dd>
