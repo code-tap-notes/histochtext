@@ -39,3 +39,9 @@ Chèn ký tự đặc biệt
     <a onclick="insertText('Search','Ḥ');" href="#" style="font-size:small; padding:3px"> Ḥ  </a>
     <a onclick="insertText('Search','Ḷ');" href="#" style="font-size:small; padding:3px"> Ḷ  </a>
     <a onclick="insertText('Search','Ḹ');" href="#" style="font-size:small; padding:3px"> Ḹ  </a>
+ <script>
+   function insertText(elemID, text) {
+       document.getElementById(elemID).value += text;
+   }
+     
+</script>
