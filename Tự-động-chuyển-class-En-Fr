@@ -1,0 +1,27 @@
+<?php
+     $admin_level = Session::get('admin_level');
+     $lang = Session::get('locale');
+     if (!$lang)
+     {
+      $lang = 'en';
+     }
+     $Class= 'Class'.ucwords($lang);
+     $SubClass= 'SubClass'.ucwords($lang);
+
+?> 
+<dt class="list">
+              @lang('dic.WordClass') :
+</dt>
+
+<dd style="font-size: medium; font-weight:bold;">
+            <strong> {{$dictionary->wordClass->$Class}} </strong>
+           
+</dd>
+<dt class="list">
+              @lang('dic.WordSubClass') :
+</dt>
+
+<dd style="font-size: medium; font-weight:bold;">
+            <strong> {{$dictionary->SubClass->$SubClass}} </strong>
+           
+</dd>
